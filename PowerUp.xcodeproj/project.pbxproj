@@ -13,6 +13,7 @@
 		43DA1758224FDFB100DA13B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DA1757224FDFB100DA13B6 /* Assets.xcassets */; };
 		43DA175B224FDFB100DA13B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DA1759224FDFB100DA13B6 /* LaunchScreen.storyboard */; };
 		43DA1763224FEF3D00DA13B6 /* SolarPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA1762224FEF3D00DA13B6 /* SolarPlantViewController.swift */; };
+		43DA1765224FFDED00DA13B6 /* WindFarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA1764224FFDED00DA13B6 /* WindFarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		43DA175A224FDFB100DA13B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43DA175C224FDFB100DA13B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43DA1762224FEF3D00DA13B6 /* SolarPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarPlantViewController.swift; sourceTree = "<group>"; };
+		43DA1764224FFDED00DA13B6 /* WindFarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindFarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				43DA1750224FDFAE00DA13B6 /* AppDelegate.swift */,
 				43DA1752224FDFAE00DA13B6 /* CreateViewController.swift */,
 				43DA1762224FEF3D00DA13B6 /* SolarPlantViewController.swift */,
+				43DA1764224FFDED00DA13B6 /* WindFarmViewController.swift */,
 				43DA1754224FDFAE00DA13B6 /* Main.storyboard */,
 				43DA1757224FDFB100DA13B6 /* Assets.xcassets */,
 				43DA1759224FDFB100DA13B6 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				43DA1763224FEF3D00DA13B6 /* SolarPlantViewController.swift in Sources */,
 				43DA1753224FDFAE00DA13B6 /* CreateViewController.swift in Sources */,
+				43DA1765224FFDED00DA13B6 /* WindFarmViewController.swift in Sources */,
 				43DA1751224FDFAE00DA13B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

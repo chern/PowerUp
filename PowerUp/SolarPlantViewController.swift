@@ -22,33 +22,20 @@ class SolarPlantViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.hideKeyboardWhenTappedAnywhere()
     }
     
     @IBAction func tiltAngleSliderTapped(_ sender: UISlider) {
         let roundedAngle = Float(roundf(tiltAngleSlider.value * 10) / 10)
-        tiltAngleLabel.text = "\(roundedAngle) \(degreesCharacter)"
+        tiltAngleLabel.text = "\(roundedAngle)\(degreesCharacter)"
     }
     
     @IBAction func percentEfficiencySliderTapped(_ sender: UISlider) {
         let roundedPercentEfficiency = Float(roundf(percentEfficiencySlider.value * 10) / 10)
-        percentEfficiencyLabel.text = "\(roundedPercentEfficiency) %"
+        percentEfficiencyLabel.text = "\(roundedPercentEfficiency)%"
     }
     
     @IBAction func addPanelSetButtonPressed(_ sender: UIButton) {
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 
 }
