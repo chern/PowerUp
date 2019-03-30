@@ -10,6 +10,7 @@ import UIKit
 
 class SolarPlantViewController: UIViewController {
 
+    // add panel set
     @IBOutlet weak var tiltAngleLabel: UILabel!
     @IBOutlet weak var tiltAngleSlider: UISlider!
     @IBOutlet weak var percentEfficiencyLabel: UILabel!
@@ -17,6 +18,11 @@ class SolarPlantViewController: UIViewController {
     @IBOutlet weak var tempCoeffTextField: UITextField!
     @IBOutlet weak var panelSurfaceAreaTextField: UITextField!
     @IBOutlet weak var numPanelsTextField: UITextField!
+    
+    // site info
+    @IBOutlet weak var annualNumCloudyDaysTextField: UITextField!
+    @IBOutlet weak var avgAnnualTempTextField: UITextField!
+    @IBOutlet weak var latitudeTextField: UITextField!
     
     let degreesCharacter = "\u{00B0}"
     

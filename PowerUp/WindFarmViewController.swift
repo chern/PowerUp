@@ -10,10 +10,18 @@ import UIKit
 
 class WindFarmViewController: UIViewController {
 
+    // add turbine set
     @IBOutlet weak var cutInWindspeedLabel: UILabel!
     @IBOutlet weak var cutInWindspeedSlider: UISlider!
     @IBOutlet weak var maxWindspeedLabel: UILabel!
     @IBOutlet weak var maxWindspeedSlider: UISlider!
+    @IBOutlet weak var ratedPowerTextField: UITextField!
+    @IBOutlet weak var numTurbinesTextField: UITextField!
+    
+    // site info
+    @IBOutlet weak var avgAnnualWindspeedTextField: UITextField!
+    @IBOutlet weak var latitudeTextField: UITextField!
+    @IBOutlet weak var longitudeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

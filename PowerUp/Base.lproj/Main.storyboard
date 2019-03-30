@@ -213,10 +213,15 @@
                         <viewLayoutGuide key="safeArea" id="tdz-P3-Hsv"/>
                     </view>
                     <connections>
+                        <outlet property="avgAnnualWindspeedTextField" destination="R6I-MI-5dz" id="453-x0-1wp"/>
                         <outlet property="cutInWindspeedLabel" destination="h92-Qa-uWE" id="oLS-Be-a3Z"/>
                         <outlet property="cutInWindspeedSlider" destination="UsQ-Df-Fb4" id="l3M-XE-ql3"/>
+                        <outlet property="latitudeTextField" destination="Nwc-fy-azr" id="aBf-Qb-NTf"/>
+                        <outlet property="longitudeTextField" destination="jRu-F8-dat" id="ArA-0E-9G3"/>
                         <outlet property="maxWindspeedLabel" destination="C5H-qP-J46" id="vfd-rF-sVv"/>
                         <outlet property="maxWindspeedSlider" destination="hXe-Ms-hSb" id="FWR-N0-Eij"/>
+                        <outlet property="numTurbinesTextField" destination="prX-At-gga" id="qfJ-Sc-nKL"/>
+                        <outlet property="ratedPowerTextField" destination="VF5-bZ-bwk" id="o6J-0h-uYr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGe-9T-FXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,6 +389,9 @@
                         <viewLayoutGuide key="safeArea" id="AZX-aH-d2V"/>
                     </view>
                     <connections>
+                        <outlet property="annualNumCloudyDaysTextField" destination="dxm-X2-hG1" id="Axt-kA-hGr"/>
+                        <outlet property="avgAnnualTempTextField" destination="L4F-81-GPp" id="f37-jZ-gpy"/>
+                        <outlet property="latitudeTextField" destination="lR5-I3-1Br" id="xUr-nu-vxx"/>
                         <outlet property="numPanelsTextField" destination="gfn-t0-0QK" id="fr2-gU-HOA"/>
                         <outlet property="panelSurfaceAreaTextField" destination="fBP-gH-8yN" id="rq3-eV-V0V"/>
                         <outlet property="percentEfficiencyLabel" destination="xNv-mw-nEa" id="Dq0-7L-8VZ"/>
