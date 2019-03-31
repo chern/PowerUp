@@ -18,4 +18,8 @@ class PowerProject {
     func getAnnualPowerOutput() -> Float {
         return -1.0;
     }
+    
+    func reset() -> Void {
+        return
+    }
 }

@@ -21,6 +21,5 @@ class ReportViewController: UIViewController {
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 
 }

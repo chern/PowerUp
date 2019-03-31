@@ -82,5 +82,13 @@ class SolarPlantProject : PowerProject {
         solarPanels.append(newPanel)
         numOfPanels.append(numPanels)
     }
+    
+    override func reset() -> Void
+    {
+        solarPanels.removeAll()
+        numOfPanels.removeAll()
+    }
+    
+    
 }
 
