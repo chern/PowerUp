@@ -80,7 +80,7 @@ class SolarPlantViewController: UIViewController {
         
         let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportViewController") as! ReportViewController
         reportVC.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-        self.navigationController?.present(reportVC, animated: true, completion: {self.reset()})
+        self.navigationController?.present(reportVC, animated: true, completion: {})
         reportVC.annualKWHOutputLabel?.text = "\(formattedPowerOutput)"
         print("presented")
     }
@@ -94,8 +94,6 @@ class SolarPlantViewController: UIViewController {
     func reset() -> Void {
         solarPlant.reset()
         
-        withNumPanelSetsDetailLabel.text = "with 0 panel sets"
-        
         tiltAngleLabel.text = "45.0\(degreesCharacter)"
         tiltAngleSlider.setValue(45.0, animated: true)
         percentEfficiencyLabel.text = "15.0%"
@@ -107,5 +105,7 @@ class SolarPlantViewController: UIViewController {
         annualNumCloudyDaysTextField.text = ""
         avgAnnualTempTextField.text = ""
         latitudeTextField.text = ""
+        
+        withNumPanelSetsDetailLabel.text = "with \(solarPlant.solarPanels.count) panel sets"
     }
 }

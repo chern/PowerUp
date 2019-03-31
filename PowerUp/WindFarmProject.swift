@@ -37,21 +37,21 @@ class WindFarmProject : PowerProject
         return totalPowerOutput
     }
     
-    static func getAnnualWindSpeed(longitude : Float) -> Float {
-        if (longitude <= 130 && longitude >= 105) {
-            return 4.5;
+    func setAnnualWindSpeedBasedOnLongitude(longitude : Float) -> Void {
+        if (longitude <= 130.0 && longitude >= 105.0) {
+            averageWindSpeed = 4.5;
         }
-        else if (longitude <= 105 && longitude >= 95) {
-            return 8.0;
+        else if (longitude <= 105.0 && longitude >= 95.0) {
+            averageWindSpeed = 8.0;
         }
-        else if (longitude <= 95 && longitude >= 85) {
-            return 6.0;
+        else if (longitude <= 95.0 && longitude >= 85.0) {
+            averageWindSpeed = 6.0;
         }
-        else if (longitude <= 85 && longitude >= 60) {
-            return 4.5;
+        else if (longitude <= 85.0 && longitude >= 60.0) {
+            averageWindSpeed = 4.5;
         }
         else {
-            return 5.5;
+            averageWindSpeed = 5.5;
         }
     }
     

@@ -169,10 +169,10 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDx-pu-XhG">
-                                <rect key="frame" x="173" y="347" width="30" height="30"/>
+                                <rect key="frame" x="159" y="347" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add"/>
+                                <state key="normal" title="Add Set"/>
                                 <connections>
                                     <action selector="addTurbineSetButtonPressed:" destination="dJX-O5-vOI" eventType="touchUpInside" id="1kg-Cl-XgC"/>
                                 </connections>
@@ -335,10 +335,10 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7u-RT-DAD">
-                                <rect key="frame" x="172" y="385" width="30" height="30"/>
+                                <rect key="frame" x="158" y="385" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add"/>
+                                <state key="normal" title="Add Set"/>
                                 <connections>
                                     <action selector="addPanelSetButtonPressed:" destination="W7f-Ss-vdZ" eventType="touchUpInside" id="CRY-pG-r9Q"/>
                                 </connections>

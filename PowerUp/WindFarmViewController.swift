@@ -66,7 +66,7 @@ class WindFarmViewController: UIViewController {
             windFarm.averageWindSpeed = Float(avgAnnualWindspeedTextField.text!) as! Float
         } else if (longitudeTextField.text != "") {
             ableToCalculate = true
-            windFarm.averageWindSpeed = WindFarmProject.getAnnualWindSpeed(longitude: Float(longitudeTextField.text!) as! Float)
+            windFarm.setAnnualWindSpeedBasedOnLongitude(longitude: Float(longitudeTextField.text!) as! Float)
         }
         
         if (ableToCalculate) {
@@ -75,11 +75,17 @@ class WindFarmViewController: UIViewController {
             let formattedPowerOutput : Float = Float(roundf(windFarm.getAnnualPowerOutput() * 100) / 100)
             print("Formatted: \(formattedPowerOutput)")
             
-            let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportViewController") as! ReportViewController
-            reportVC.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-            self.navigationController?.present(reportVC, animated: true, completion: {self.reset()})
-            reportVC.annualKWHOutputLabel?.text = "\(formattedPowerOutput)"
-            print("presented")
+            if (formattedPowerOutput < 0) {
+                let errorAlert = UIAlertController(title: "Error", message: "Average windspeed must be greater than cut-in windspeed for all turbine sets.", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true)
+            } else {
+                let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportViewController") as! ReportViewController
+                reportVC.modalTransitionStyle = UIModalTransitionStyle.partialCurl
+                self.navigationController?.present(reportVC, animated: true, completion: {})
+                reportVC.annualKWHOutputLabel?.text = "\(formattedPowerOutput)"
+                print("presented")
+            }
         }
     }
     
@@ -100,6 +106,6 @@ class WindFarmViewController: UIViewController {
         avgAnnualWindspeedTextField.text = ""
         longitudeTextField.text = ""
         
-        withNumTurbineSetsLabel.text = "with 0 turbine sets"
+        withNumTurbineSetsLabel.text = "with \(windFarm.turbines.count) turbine sets"
     }
 }
