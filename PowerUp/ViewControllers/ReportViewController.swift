@@ -10,6 +10,8 @@ import UIKit
 
 class ReportViewController: UIViewController {
     
+    @IBOutlet weak var dismissButton: UIButton!
+    
     @IBOutlet weak var annualKWHOutputLabel: UILabel?
     @IBOutlet weak var revenuePerYearLabel: UILabel!
     @IBOutlet weak var poundsCO2OffsetPerYearLabel: UILabel!
@@ -18,6 +20,7 @@ class ReportViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        dismissButton.layer.cornerRadius = 8
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {

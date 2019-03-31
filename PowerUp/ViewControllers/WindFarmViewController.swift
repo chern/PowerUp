@@ -11,6 +11,7 @@ import UIKit
 class WindFarmViewController: UIViewController {
 
     // add turbine set
+    @IBOutlet weak var addSetButton: UIButton!
     @IBOutlet weak var cutInWindspeedLabel: UILabel!
     @IBOutlet weak var cutInWindspeedSlider: UISlider!
     @IBOutlet weak var maxWindspeedLabel: UILabel!
@@ -23,6 +24,7 @@ class WindFarmViewController: UIViewController {
     @IBOutlet weak var longitudeTextField: UITextField!
     
     // detailed info
+    @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var withNumTurbineSetsLabel: UILabel!
     
     var windFarm = WindFarmProject(lat: 0.0, long: 0.0, avgWSpd: 0.0)
@@ -32,6 +34,8 @@ class WindFarmViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAnywhere()
+        addSetButton.layer.cornerRadius = 8
+        calculateButton.layer.cornerRadius = 8
     }
     
     @IBAction func cutInWindspeedSliderTouched(_ sender: UISlider) {

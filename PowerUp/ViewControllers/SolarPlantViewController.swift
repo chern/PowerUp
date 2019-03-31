@@ -14,6 +14,7 @@ class SolarPlantViewController: UIViewController {
     let degreesCharacter = "\u{00B0}"
 
     // add panel set
+    @IBOutlet weak var addSetButton: UIButton!
     @IBOutlet weak var tiltAngleLabel: UILabel!
     @IBOutlet weak var tiltAngleSlider: UISlider!
     @IBOutlet weak var percentEfficiencyLabel: UILabel!
@@ -28,6 +29,7 @@ class SolarPlantViewController: UIViewController {
     @IBOutlet weak var latitudeTextField: UITextField!
     
     // detailed info
+    @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var withNumPanelSetsDetailLabel: UILabel!
     
     
@@ -36,6 +38,8 @@ class SolarPlantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAnywhere()
+        addSetButton.layer.cornerRadius = 8
+        calculateButton.layer.cornerRadius = 8
     }
     
     @IBAction func tiltAngleSliderTapped(_ sender: UISlider) {

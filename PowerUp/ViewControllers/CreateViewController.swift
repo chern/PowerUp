@@ -10,9 +10,15 @@ import UIKit
 
 class CreateViewController: UIViewController {
 
+    @IBOutlet weak var newSolarPlantButton: UIButton!
+    @IBOutlet weak var newWindFarmButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        newSolarPlantButton.layer.cornerRadius = 8
+        newWindFarmButton.layer.cornerRadius = 8
     }
 
 
