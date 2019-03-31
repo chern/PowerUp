@@ -19,6 +19,7 @@
 		43DA176B2250158E00DA13B6 /* WindTurbine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA176A2250158E00DA13B6 /* WindTurbine.swift */; };
 		43DA176D2250159A00DA13B6 /* SolarPlantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA176C2250159A00DA13B6 /* SolarPlantProject.swift */; };
 		43DA176F225015A600DA13B6 /* WindFarmProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA176E225015A600DA13B6 /* WindFarmProject.swift */; };
+		43DA1771225052F600DA13B6 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA1770225052F500DA13B6 /* ReportViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		43DA176A2250158E00DA13B6 /* WindTurbine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindTurbine.swift; sourceTree = "<group>"; };
 		43DA176C2250159A00DA13B6 /* SolarPlantProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarPlantProject.swift; sourceTree = "<group>"; };
 		43DA176E225015A600DA13B6 /* WindFarmProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindFarmProject.swift; sourceTree = "<group>"; };
+		43DA1770225052F500DA13B6 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +74,11 @@
 				43DA1752224FDFAE00DA13B6 /* CreateViewController.swift */,
 				43DA1762224FEF3D00DA13B6 /* SolarPlantViewController.swift */,
 				43DA1764224FFDED00DA13B6 /* WindFarmViewController.swift */,
+				43DA1770225052F500DA13B6 /* ReportViewController.swift */,
 				43DA1754224FDFAE00DA13B6 /* Main.storyboard */,
 				43DA17662250134700DA13B6 /* SolarPanel.swift */,
-				43DA17682250157A00DA13B6 /* PowerProject.swift */,
 				43DA176A2250158E00DA13B6 /* WindTurbine.swift */,
+				43DA17682250157A00DA13B6 /* PowerProject.swift */,
 				43DA176C2250159A00DA13B6 /* SolarPlantProject.swift */,
 				43DA176E225015A600DA13B6 /* WindFarmProject.swift */,
 				43DA1757224FDFB100DA13B6 /* Assets.xcassets */,
@@ -164,6 +167,7 @@
 				43DA1765224FFDED00DA13B6 /* WindFarmViewController.swift in Sources */,
 				43DA1751224FDFAE00DA13B6 /* AppDelegate.swift in Sources */,
 				43DA176B2250158E00DA13B6 /* WindTurbine.swift in Sources */,
+				43DA1771225052F600DA13B6 /* ReportViewController.swift in Sources */,
 				43DA176D2250159A00DA13B6 /* SolarPlantProject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,11 +1,3 @@
-//
-//  WindFarmProject.swift
-//  PowerUp
-//
-//  Created by William Chern on 3/30/19.
-//  Copyright © 2019 William Chern. All rights reserved.
-//
-
 import Foundation
 
 class WindFarmProject : PowerProject
@@ -22,6 +14,7 @@ class WindFarmProject : PowerProject
     var averageWindSpeed : Float
     var longitude : Float
     
-    
+    override func getAnnualPowerOutput() -> Float {
+        return -1.0
+    }
 }
-

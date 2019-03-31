@@ -11,8 +11,8 @@ import Foundation
 class SolarPlantProject : PowerProject {
     init (lat : Float, nCloudy : Float, avgAnTemp : Float)
     {
-        self.annualNumCloudyDays = nCloudy;
-        self.averageAnnualTemp = avgAnTemp;
+        self.annualNumCloudyDays = nCloudy
+        self.averageAnnualTemp = avgAnTemp
         super.init(lat: lat)
     }
     var solarPanels : [SolarPanel] = []
@@ -20,7 +20,7 @@ class SolarPlantProject : PowerProject {
     var annualNumCloudyDays : Float
     var averageAnnualTemp : Float
     
-    func getAnnualPowerOutput() -> Float {
+    override func getAnnualPowerOutput() -> Float {
         var totalPowerOutput : Float = 0
         
         var peakIrradiance : Float = 0
@@ -62,17 +62,17 @@ class SolarPlantProject : PowerProject {
             var tiltFactor : Float = 0
             tiltFactor = (-1.0/90.0) * abs(solarPanel.tiltAngle + 23.5 - 90) + 1
             
-            let dailyNonCloudyPowerGeneration : Float = (solarPanel.surfaceArea * (peakIrradiance * 0.45) * (solarPanel.percentEfficiency / 100.0 - solarPanel.temperatureCoefficient / 100.0 * self.averageAnnualTemp))
+            let dailyNonCloudyPowerGeneration : Float = (solarPanel.surfaceArea * (peakIrradiance * 0.45) * (solarPanel.percentEfficiency / 100.0 - solarPanel.temperatureCoefficient / 100.0 * self.averageAnnualTemp)) * numOfPanels[i]
             
             let dailyCloudyPowerGeneration : Float = dailyNonCloudyPowerGeneration * 0.25
             
             totalPowerOutput += dailyNonCloudyPowerGeneration * 12.0 * (365.0 - self.annualNumCloudyDays) * tiltFactor
             
-            totalPowerOutput +=  dailyCloudyPowerGeneration * 12 * annualNumCloudyDays * tiltFactor
+            totalPowerOutput +=  dailyCloudyPowerGeneration * 12.0 * annualNumCloudyDays * tiltFactor
             
             i += 1
         }
-        return totalPowerOutput;
+        return totalPowerOutput / 1000;
     }
     
     

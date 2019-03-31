@@ -14,4 +14,8 @@ class PowerProject {
         self.latitude = lat
     }
     var latitude : Float
+    
+    func getAnnualPowerOutput() -> Float {
+        return -1.0;
+    }
 }
