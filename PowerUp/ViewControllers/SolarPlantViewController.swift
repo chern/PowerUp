@@ -53,10 +53,17 @@ class SolarPlantViewController: UIViewController {
     }
     
     @IBAction func addPanelSetButtonPressed(_ sender: UIButton) {
-        if(tempCoeffTextField.text == "" || panelSurfaceAreaTextField.text == "" || numPanelsTextField.text == "") {
+        if (tempCoeffTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Temperature Coefficient")
             return
-            // for later: show an alert?
+        }  else if (panelSurfaceAreaTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Panel Surface Area")
+            return
+        } else if (numPanelsTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Number of Empty Panels")
+            return
         }
+        
         solarPlant.addPanelSet(numPanels: Float(numPanelsTextField.text!) as! Float, percentEfficiency: percentEfficiencySlider.value, temperatureCoefficient: Float(tempCoeffTextField.text!) as! Float, surfaceArea: Float(panelSurfaceAreaTextField.text!) as! Float, tiltAngle: tiltAngleSlider.value)
         resetAddPanelSetFields()
         if (solarPlant.solarPanels.count == 0 || solarPlant.solarPanels.count >= 2) {
@@ -67,10 +74,17 @@ class SolarPlantViewController: UIViewController {
     }
 
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        if(annualNumCloudyDaysTextField.text == "" || avgAnnualTempTextField.text == "" || latitudeTextField.text == "") {
+        if (annualNumCloudyDaysTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Annual # of Cloudy Days")
             return
-            // for later: show an alert?
+        } else if (avgAnnualTempTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Averge Annual Temperature")
+            return
+        } else if (latitudeTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Latitude")
+            return
         }
+        
         solarPlant.annualNumCloudyDays = Float(annualNumCloudyDaysTextField.text!) as! Float
         solarPlant.averageAnnualTemp = Float(avgAnnualTempTextField.text!) as! Float
         solarPlant.latitude = Float(latitudeTextField.text!) as! Float
@@ -120,5 +134,11 @@ class SolarPlantViewController: UIViewController {
         resetAddPanelSetFields()
         resetSiteInfoFields()
         withNumPanelSetsDetailLabel.text = "with \(solarPlant.solarPanels.count) panel sets"
+    }
+    
+    func showEmptyFieldAlert(fieldName : String) -> Void {
+        let alert : UIAlertController = UIAlertController(title: fieldName, message: "The \(fieldName.lowercased()) field cannot be blank.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }

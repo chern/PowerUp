@@ -49,9 +49,14 @@ class WindFarmViewController: UIViewController {
     }
     
     @IBAction func addTurbineSetButtonPressed(_ sender: UIButton) {
-        if (ratedPowerTextField.text == "" || numTurbinesTextField.text == "") {
+        if (ratedPowerTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Rated Power")
+            return
+        } else if (numTurbinesTextField.text == "") {
+            showEmptyFieldAlert(fieldName: "Number of Turbines")
             return
         }
+        
         windFarm.addTurbineSet(numTurbines: Float(numTurbinesTextField.text!) as! Float, cutInWindSpeed: cutInWindspeedSlider.value, ratedPowerWindSpeed: maxWindspeedSlider.value, ratedPower: Float(ratedPowerTextField.text!) as! Float)
         
         resetAddTurbineSetFields()
@@ -74,7 +79,11 @@ class WindFarmViewController: UIViewController {
             windFarm.setAnnualWindSpeedBasedOnLongitude(longitude: Float(longitudeTextField.text!) as! Float)
         }
         
-        if (ableToCalculate) {
+        if (!ableToCalculate) {
+            let alert = UIAlertController(title: "Site Info Error", message: "Either average annual windspeed or a longitude must be entered.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        } else {
             print(windFarm.getAnnualPowerOutput())
             
             let formattedPowerOutput : Float = Float(roundf(windFarm.getAnnualPowerOutput() * 100) / 100)
@@ -104,6 +113,8 @@ class WindFarmViewController: UIViewController {
         self.reset()
     }
     
+    // MARK: - Specific Member Functions
+    
     func resetAddTurbineSetFields() -> Void {
         cutInWindspeedLabel.text = "0.0 m/s"
         cutInWindspeedSlider.setValue(0.0, animated: true)
@@ -123,5 +134,11 @@ class WindFarmViewController: UIViewController {
         resetAddTurbineSetFields()
         resetSiteInfoFields()
         withNumTurbineSetsLabel.text = "with \(windFarm.turbines.count) turbine sets"
+    }
+    
+    func showEmptyFieldAlert(fieldName : String) -> Void {
+        let alert : UIAlertController = UIAlertController(title: fieldName, message: "The \(fieldName.lowercased()) field cannot be blank.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }
