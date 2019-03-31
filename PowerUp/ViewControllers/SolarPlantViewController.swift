@@ -60,7 +60,7 @@ class SolarPlantViewController: UIViewController {
             showEmptyFieldAlert(fieldName: "Panel Surface Area")
             return
         } else if (numPanelsTextField.text == "") {
-            showEmptyFieldAlert(fieldName: "Number of Empty Panels")
+            showEmptyFieldAlert(fieldName: "Number of Panels")
             return
         }
         
