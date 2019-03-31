@@ -54,9 +54,7 @@ class SolarPlantViewController: UIViewController {
             // for later: show an alert?
         }
         solarPlant.addPanelSet(numPanels: Float(numPanelsTextField.text!) as! Float, percentEfficiency: percentEfficiencySlider.value, temperatureCoefficient: Float(tempCoeffTextField.text!) as! Float, surfaceArea: Float(panelSurfaceAreaTextField.text!) as! Float, tiltAngle: tiltAngleSlider.value)
-        tempCoeffTextField.text = ""
-        panelSurfaceAreaTextField.text = ""
-        numPanelsTextField.text = ""
+        resetAddPanelSetFields()
         if (solarPlant.solarPanels.count == 0 || solarPlant.solarPanels.count >= 2) {
             withNumPanelSetsDetailLabel.text = "with \(solarPlant.solarPanels.count) panel sets" // plural
         } else {
@@ -78,10 +76,16 @@ class SolarPlantViewController: UIViewController {
         let formattedPowerOutput : Float = Float(roundf(solarPlant.getAnnualPowerOutput() * 100) / 100)
         print("Formatted: \(formattedPowerOutput)")
         
+        let formattedRevenuePerYear : Float = Float(roundf(solarPlant.calculateRevenue() * 100) / 100)
+        
+        let formattedOffsetCO2PerYear : Float = Float(roundf(solarPlant.calculatePoundsCO2SavedPerYear() * 100) / 100)
+        
         let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportViewController") as! ReportViewController
         reportVC.modalTransitionStyle = UIModalTransitionStyle.partialCurl
         self.navigationController?.present(reportVC, animated: true, completion: {})
         reportVC.annualKWHOutputLabel?.text = "\(formattedPowerOutput)"
+        reportVC.revenuePerYearLabel?.text = "$\(formattedRevenuePerYear)"
+        reportVC.poundsCO2OffsetPerYearLabel?.text = "\(formattedOffsetCO2PerYear)"
         print("presented")
     }
     
@@ -91,9 +95,7 @@ class SolarPlantViewController: UIViewController {
     
     // MARK: - Specific Functions
     
-    func reset() -> Void {
-        solarPlant.reset()
-        
+    func resetAddPanelSetFields() -> Void {
         tiltAngleLabel.text = "45.0\(degreesCharacter)"
         tiltAngleSlider.setValue(45.0, animated: true)
         percentEfficiencyLabel.text = "15.0%"
@@ -101,11 +103,18 @@ class SolarPlantViewController: UIViewController {
         tempCoeffTextField.text = ""
         panelSurfaceAreaTextField.text = ""
         numPanelsTextField.text = ""
-        
+    }
+    
+    func resetSiteInfoFields() -> Void {
         annualNumCloudyDaysTextField.text = ""
         avgAnnualTempTextField.text = ""
         latitudeTextField.text = ""
-        
+    }
+    
+    func reset() -> Void {
+        solarPlant.reset()
+        resetAddPanelSetFields()
+        resetSiteInfoFields()
         withNumPanelSetsDetailLabel.text = "with \(solarPlant.solarPanels.count) panel sets"
     }
 }

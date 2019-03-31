@@ -49,8 +49,9 @@ class WindFarmViewController: UIViewController {
             return
         }
         windFarm.addTurbineSet(numTurbines: Float(numTurbinesTextField.text!) as! Float, cutInWindSpeed: cutInWindspeedSlider.value, ratedPowerWindSpeed: maxWindspeedSlider.value, ratedPower: Float(ratedPowerTextField.text!) as! Float)
-        ratedPowerTextField.text = ""
-        numTurbinesTextField.text = ""
+        
+        resetAddTurbineSetFields()
+        
         if (windFarm.turbines.count == 0 || windFarm.turbines.count >= 2) {
             withNumTurbineSetsLabel.text = "with \(windFarm.turbines.count) turbine sets"
         } else {
@@ -75,6 +76,10 @@ class WindFarmViewController: UIViewController {
             let formattedPowerOutput : Float = Float(roundf(windFarm.getAnnualPowerOutput() * 100) / 100)
             print("Formatted: \(formattedPowerOutput)")
             
+            let formattedRevenuePerYear : Float = Float(roundf(windFarm.calculateRevenue() * 100) / 100)
+            
+            let formattedOffsetCO2PerYear : Float = Float(roundf(windFarm.calculatePoundsCO2SavedPerYear() * 100) / 100)
+            
             if (formattedPowerOutput < 0) {
                 let errorAlert = UIAlertController(title: "Error", message: "Average windspeed must be greater than cut-in windspeed for all turbine sets.", preferredStyle: .alert)
                 errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -84,6 +89,8 @@ class WindFarmViewController: UIViewController {
                 reportVC.modalTransitionStyle = UIModalTransitionStyle.partialCurl
                 self.navigationController?.present(reportVC, animated: true, completion: {})
                 reportVC.annualKWHOutputLabel?.text = "\(formattedPowerOutput)"
+                reportVC.revenuePerYearLabel?.text = "$\(formattedRevenuePerYear)"
+                reportVC.poundsCO2OffsetPerYearLabel?.text = "\(formattedOffsetCO2PerYear)"
                 print("presented")
             }
         }
@@ -93,19 +100,24 @@ class WindFarmViewController: UIViewController {
         self.reset()
     }
     
-    func reset() -> Void {
-        windFarm.reset()
-        
+    func resetAddTurbineSetFields() -> Void {
         cutInWindspeedLabel.text = "0.0 m/s"
         cutInWindspeedSlider.setValue(0.0, animated: true)
         maxWindspeedLabel.text = "0.0 m/s"
         maxWindspeedSlider.setValue(0.0, animated: true)
         ratedPowerTextField.text = ""
         numTurbinesTextField.text = ""
-        
+    }
+    
+    func resetSiteInfoFields() -> Void {
         avgAnnualWindspeedTextField.text = ""
         longitudeTextField.text = ""
-        
+    }
+    
+    func reset() -> Void {
+        windFarm.reset()
+        resetAddTurbineSetFields()
+        resetSiteInfoFields()
         withNumTurbineSetsLabel.text = "with \(windFarm.turbines.count) turbine sets"
     }
 }

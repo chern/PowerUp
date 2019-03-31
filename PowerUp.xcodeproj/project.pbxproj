@@ -71,21 +71,37 @@
 			isa = PBXGroup;
 			children = (
 				43DA1750224FDFAE00DA13B6 /* AppDelegate.swift */,
-				43DA1752224FDFAE00DA13B6 /* CreateViewController.swift */,
-				43DA1762224FEF3D00DA13B6 /* SolarPlantViewController.swift */,
-				43DA1764224FFDED00DA13B6 /* WindFarmViewController.swift */,
-				43DA1770225052F500DA13B6 /* ReportViewController.swift */,
+				43DA17732250A37500DA13B6 /* ViewControllers */,
 				43DA1754224FDFAE00DA13B6 /* Main.storyboard */,
-				43DA17662250134700DA13B6 /* SolarPanel.swift */,
-				43DA176A2250158E00DA13B6 /* WindTurbine.swift */,
-				43DA17682250157A00DA13B6 /* PowerProject.swift */,
-				43DA176C2250159A00DA13B6 /* SolarPlantProject.swift */,
-				43DA176E225015A600DA13B6 /* WindFarmProject.swift */,
+				43DA17722250A35800DA13B6 /* Classes */,
 				43DA1757224FDFB100DA13B6 /* Assets.xcassets */,
 				43DA1759224FDFB100DA13B6 /* LaunchScreen.storyboard */,
 				43DA175C224FDFB100DA13B6 /* Info.plist */,
 			);
 			path = PowerUp;
+			sourceTree = "<group>";
+		};
+		43DA17722250A35800DA13B6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				43DA17662250134700DA13B6 /* SolarPanel.swift */,
+				43DA176A2250158E00DA13B6 /* WindTurbine.swift */,
+				43DA17682250157A00DA13B6 /* PowerProject.swift */,
+				43DA176C2250159A00DA13B6 /* SolarPlantProject.swift */,
+				43DA176E225015A600DA13B6 /* WindFarmProject.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		43DA17732250A37500DA13B6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				43DA1752224FDFAE00DA13B6 /* CreateViewController.swift */,
+				43DA1762224FEF3D00DA13B6 /* SolarPlantViewController.swift */,
+				43DA1764224FFDED00DA13B6 /* WindFarmViewController.swift */,
+				43DA1770225052F500DA13B6 /* ReportViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

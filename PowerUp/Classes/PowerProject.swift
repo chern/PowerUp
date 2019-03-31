@@ -22,4 +22,12 @@ class PowerProject {
     func reset() -> Void {
         return
     }
+    
+    func calculatePoundsCO2SavedPerYear() -> Float{
+        return 0.62 * getAnnualPowerOutput()
+    }
+    
+    func calculateRevenue() -> Float{
+        return 0.1319 * getAnnualPowerOutput()
+    }
 }

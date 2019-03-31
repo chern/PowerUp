@@ -11,6 +11,8 @@ import UIKit
 class ReportViewController: UIViewController {
     
     @IBOutlet weak var annualKWHOutputLabel: UILabel?
+    @IBOutlet weak var revenuePerYearLabel: UILabel!
+    @IBOutlet weak var poundsCO2OffsetPerYearLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
