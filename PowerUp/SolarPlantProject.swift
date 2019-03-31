@@ -88,7 +88,5 @@ class SolarPlantProject : PowerProject {
         solarPanels.removeAll()
         numOfPanels.removeAll()
     }
-    
-    
 }
 

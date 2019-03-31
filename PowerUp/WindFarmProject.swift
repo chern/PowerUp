@@ -37,7 +37,7 @@ class WindFarmProject : PowerProject
         return totalPowerOutput
     }
     
-    func getAnnualWindSpeed (longitude : Float) -> Float {
+    static func getAnnualWindSpeed(longitude : Float) -> Float {
         if (longitude <= 130 && longitude >= 105) {
             return 4.5;
         }
@@ -53,6 +53,13 @@ class WindFarmProject : PowerProject
         else {
             return 5.5;
         }
+    }
+    
+    func addTurbineSet(numTurbines : Float, cutInWindSpeed : Float, ratedPowerWindSpeed : Float, ratedPower : Float) -> Void
+    {
+        let newTurbine = WindTurbine (cw : cutInWindSpeed, rpw : ratedPowerWindSpeed, rp : ratedPower)
+        turbines.append(newTurbine)
+        numOfTurbines.append(numTurbines)
     }
     
     override func reset() -> Void {
