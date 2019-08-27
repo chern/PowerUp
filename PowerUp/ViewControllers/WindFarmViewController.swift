@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class WindFarmViewController: UIViewController {
+class WindFarmViewController: UIViewController, CLLocationManagerDelegate {
 
     // add turbine set
     @IBOutlet weak var addSetButton: UIButton!
@@ -27,6 +28,9 @@ class WindFarmViewController: UIViewController {
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var withNumTurbineSetsLabel: UILabel!
     
+    var locManager = CLLocationManager()
+    var currentLoc: CLLocation!
+    
     var windFarm = WindFarmProject(lat: 0.0, long: 0.0, avgWSpd: 0.0)
     
     override func viewDidLoad() {
@@ -36,6 +40,8 @@ class WindFarmViewController: UIViewController {
         self.hideKeyboardWhenTappedAnywhere()
         addSetButton.layer.cornerRadius = 8
         calculateButton.layer.cornerRadius = 8
+        
+        locManager.requestWhenInUseAuthorization()
     }
     
     @IBAction func cutInWindspeedSliderTouched(_ sender: UISlider) {
@@ -109,6 +115,13 @@ class WindFarmViewController: UIViewController {
         }
     }
     
+    @IBAction func getLongitudeButtonPressed(_ sender: UIButton) {
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse){
+            currentLoc = locManager.location
+        }
+        longitudeTextField.text = "\(currentLoc.coordinate.longitude)"
+    }
+    
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         self.reset()
     }
@@ -140,5 +153,15 @@ class WindFarmViewController: UIViewController {
         let alert : UIAlertController = UIAlertController(title: fieldName, message: "The \(fieldName.lowercased()) field cannot be blank.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    // MARK: CLLocationManagerDelegate functions
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // do something
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // do something
     }
 }

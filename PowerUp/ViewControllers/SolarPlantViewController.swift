@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class SolarPlantViewController: UIViewController {
+class SolarPlantViewController: UIViewController, CLLocationManagerDelegate {
     
     // constants
     let degreesCharacter = "\u{00B0}"
@@ -32,6 +33,8 @@ class SolarPlantViewController: UIViewController {
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var withNumPanelSetsDetailLabel: UILabel!
     
+    var locManager = CLLocationManager()
+    var currentLoc: CLLocation!
     
     var solarPlant: SolarPlantProject = SolarPlantProject(lat: 0.0, nCloudy: 0.0, avgAnTemp: 0.0)
     
@@ -40,6 +43,8 @@ class SolarPlantViewController: UIViewController {
         self.hideKeyboardWhenTappedAnywhere()
         addSetButton.layer.cornerRadius = 8
         calculateButton.layer.cornerRadius = 8
+        
+        locManager.requestWhenInUseAuthorization()
     }
     
     @IBAction func tiltAngleSliderTapped(_ sender: UISlider) {
@@ -107,6 +112,13 @@ class SolarPlantViewController: UIViewController {
         print("presented")
     }
     
+    @IBAction func getLatitudeButtonPressed(_ sender: UIButton) {
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse){
+            currentLoc = locManager.location
+        }
+        latitudeTextField.text = "\(currentLoc.coordinate.latitude)"
+    }
+    
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         self.reset()
     }
@@ -140,5 +152,14 @@ class SolarPlantViewController: UIViewController {
         let alert : UIAlertController = UIAlertController(title: fieldName, message: "The \(fieldName.lowercased()) field cannot be blank.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    // MARK: - CoreLocation Delegate Methods
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // do something
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // do something
     }
 }
